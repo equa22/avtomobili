@@ -1,0 +1,601 @@
+.shadow {
+  box-shadow: px(20) px(10) px(70) 0px rgba(0, 0, 0, 0.13);
+}
+.generic {
+  .small-container {
+    width: calc(#{$container/100 * 60});
+    margin: auto;
+    
+    @include responsive(small) {
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
+  h1 {
+    @include font($raleway, $extra, #{px(18)});
+    color: #3c3c3c;
+    text-transform: uppercase;
+    margin-bottom: px(73);
+    padding-top: px(90);
+    
+    &:after {
+      background-color: $blue;
+      height: px(4);
+      width: px(22);
+      margin-left: px(17);
+      content: "";
+      display: inline-block;
+      position: relative;
+      top: px(-3);
+    }
+  }
+  h5 {
+    @include font($raleway, $extra, #{px(24)});
+  }
+  h6 {
+    @include font($raleway, $extra, #{px(16)});
+  }
+  p {
+    max-width: 350px;
+    @include font($lato, $regular, #{px(16)});
+    line-height: px(24);
+    color: #2a2a2a;
+    opacity: 0.8;
+
+    &.padding {
+      padding-bottom: px(190);
+      padding-top: px(52);
+    }
+    @include responsive(mobile) {
+      max-width: 100%;
+    }
+  }
+  .exposed {
+    @include font($lato, $regular, #{px(36)});
+    color: #3c3c3c;
+    line-height: px(60);
+  }
+  .tabs {
+    @include flex(center, center);
+    position: relative;
+    top: px(-32);
+    margin-bottom: px(90);
+    
+    div {
+      height: px(75);
+      width: px(250);
+      @include font($raleway, $extra, #{px(16)});
+      padding-left: px(100);
+      position: relative;
+      margin: 0 px(27);
+      text-transform: uppercase;
+      @include flex(flex-start, center);
+      background-color: white;
+      box-shadow: 0px 28px 51px 0px rgba(0, 0, 0, 0.09); 
+      
+      @include responsive(mobile) {
+        width: 33.33%;
+      }
+
+      &:nth-child(1) {
+        &::before {
+          background-image: url(../assets/ikone/postenost.svg);
+          background-size: px(36);  
+        }
+      }
+      &:nth-child(2) {
+        &::before {
+          background-image: url(../assets/ikone/kvaliteta.svg);
+          background-size: px(33);  
+        }
+      }
+      &:nth-child(3) {
+        &::before {
+          background-image: url(../assets/ikone/zadovoljstvo.svg);
+          background-size: px(35) px(32);  
+        } 
+      }
+    
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: px(75);
+        width: px(75);
+        background-color: $blue;
+        left: 0;
+        top: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  .centered {
+    @include flex(center, center);
+    
+    p {
+      @include font($lato, $regular, #{px(18)});
+      line-height: px(27);
+      font-style: italic;
+      color: #4c4c4c;
+    }
+  
+    .image-wrapper {
+      margin: px(162) 0;
+      @include flex(center, center);
+      margin-left: px(84);
+
+      img {
+        @include image(#{px(90)}, #{px(90)}, cover);
+        border-radius: 50%;
+        margin-right: px(38);
+        
+        }
+      .img {
+        position: relative;
+        
+        &::after {
+          width: px(98);
+          height: px(98);
+          position: absolute;
+          bottom: 0;
+          left: px(-4);
+          content: "";
+          border-bottom: solid px(4) $blue;
+          border-top: solid px(4) #f6f6f6;
+          border-left: solid px(4) $blue;
+          border-right: solid px(4) #f6f6f6;
+          transform: rotate(-45deg);
+          border-radius: 50%;
+          display: block;
+        }
+      }
+      p {
+        font-style: normal;
+        color: #2a2a2a;
+        @include font($lato, $regular, #{px(16)});
+        line-height: px(25);
+        opacity: 0.5;
+      }
+    }
+  }
+  .aside {
+    @include flex(flex-start, flex-start);
+    margin-top: px(75);
+    
+    h5, h6 {
+      margin-bottom: px(40);
+    }
+    div {
+      p {
+        @include font($lato, $regular, #{px(16)});
+        color: #2a2a2a;
+        opacity: 0.8;
+        line-height: px(24);
+      
+        label {
+          color: #8f8f8f;
+          margin-right: 5px;
+        }
+      }
+      
+      &:nth-child(1) {
+        flex-grow: 1;
+      }
+    }
+  }
+  .accordation {
+    &.opened {
+      .inner-wrapper {
+        max-height: 500px;
+        padding-top: px(35);
+      }
+      
+      h5 {
+        .trigger {
+          &::before {
+            content: "-";
+            top: px(-3);
+            position: relative;
+          }
+        }
+      }
+    }
+    .inner-wrapper {
+      max-height: 0;
+      overflow: hidden;
+      @include transition(0.5s);
+      @include font($lato, $regular, #{px(16)});
+      line-height: px(24);
+      color: #2a2a2a;
+      opacity: 0.8;
+    }
+    h5 {
+      border-bottom: solid 1px #ededef;
+      padding-bottom: px(30);
+      margin-top: px(75);
+      
+      .trigger {
+        width: px(30);
+        height: px(30);
+        border: solid 1px rgba(0,0,0,0.5);
+        @include flex(center, center);
+        float: right;
+        cursor: pointer;
+        
+        &::before {
+          content: "+";
+          @include font($raleway, $thin, #{px(36)});
+        }
+      }
+    }
+  }
+  .location {
+    @extend .container;
+    @extend .shadow;
+    background-color: white;
+    margin-bottom: px(80);
+    @extend .flex;
+    @extend .wrap;
+    @include responsive(mobile) {
+      @include direction(column);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    .row {
+      margin: 0;
+      padding: 0;
+      @extend .flex;
+      padding: px(30) 0;
+      
+      &.border {
+        border-bottom: solid 1px #e5e5e5;
+      }
+      
+      .item, .icon {
+        @include grow(1);
+      }
+      .icon {
+        padding-left: px(36);
+      }
+      a {
+        color: #42444d;
+      }
+      .button {
+        padding: px(15);
+        line-height: 1;
+        color: $blue;
+        border: $blue solid 1px;
+        background-color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        @include font($lato, $regular, #{px(12)});
+
+        &:hover {
+          background-color: $blue;
+          color: white;
+        }
+      }
+    }
+    .item {
+      label {
+        color: #2a2a2a;
+        font-size: px(10);
+        text-transform: uppercase;
+        opacity: 0.5;
+        margin-bottom: px(20);
+      }
+    }
+    h5 {
+      @include grow(1);
+      text-transform: uppercase;
+    }
+    img {
+      @include image(50%, 100%, contain);
+      
+      @include responsive(mobile) {
+        width: 100%;
+      }
+    }
+    .inner-wrapper {
+      width: 50%;
+      padding: px(15) px(65);
+      
+      &.border {
+        
+      }
+      @include responsive(mobile) {
+        width: 100%;
+      }
+    }
+  }
+  .step {
+    color: #2a2a2a;
+    @extend .flex;
+    @extend .wrap;
+    margin-bottom: px(85);
+    padding-bottom: px(40);
+    background-image: url(../assets/ikone/big-arrow-down.svg);
+    background-size: px(55) px(70);
+    background-position: calc(100% - #{px(184)}) 100%;
+    background-repeat: no-repeat;
+    
+  
+    @include responsive(mobile) {
+      background-position: 50% 100%;
+    }
+    .heading {
+      width: 50%;
+      margin-top: px(110);
+      background-color: white;
+      padding: px(60) px(100) px(40) px(70);
+      position: relative;
+      z-index: 1;
+      @include shadow(29px 29px 59px 0px rgba(0, 0, 0, 0.06));
+      
+      @include responsive(mobile) {
+        width: 100%;
+        padding: 20px;
+        margin-top: 0;
+      }
+      
+      label {
+        color: #2a2a2a;
+        position: relative;
+        &::before {
+          content: "";
+          background-color: $blue;
+          width: px(22);
+          height: px(4);
+          position: absolute;
+          left: 0;
+          top: 6px;
+        }
+      }
+      h2 {
+
+      }
+      p {
+        color: #4c4c4c;
+        width: px(500);
+        max-width: px(500);
+        
+        @include responsive(mobile) {
+          max-width: 100%;
+        }
+        &.more {
+          max-height: 0;
+          overflow: hidden;
+          @include transition(0.3s);
+          &.opened {
+            max-height: 500px;
+          }
+        }
+      }
+      a {
+        text-transform: uppercase;
+        color: #0088ff;
+        font-size: px(16);
+        padding: px(15) px(25);
+        border: solid 1px #0088ff;
+        @include transition(0.3s);
+        background-color: white;
+        &:hover {
+          background-color: #0088ff;
+          color: white;
+        }
+      }
+      .trigger {
+        opacity: 0.5;
+        color: #4c4c4c;
+        padding-top: px(30);
+        margin-top: px(25);
+        border-top: solid 1px #e6e6e6;
+        font-size: px(12);
+        cursor: pointer;
+        width: px(450);
+        margin-left: 2.5rem;
+        
+        
+        &::before {
+          content: "+";
+          margin-right: 4px;
+          
+        }
+        &.close-tab {
+          &::before {
+            content: "-";
+          }
+        }
+      }
+      
+      &::after {
+        height: 100%;
+        width: px(100);
+        content: "";
+        position: absolute;
+        right: px(-100);
+        top: 0;
+        background-color: white;
+        
+        @include responsive(mobile) {
+          display: none;
+        }
+      }
+    }
+    img {
+      @include image(50%, #{px(520)}, cover);
+      position: relative;
+      z-index: 2;
+      @include shadow(8px 8px 57px 0px rgba(0, 0, 0, 0.34));
+      
+      @include responsive(mobile) {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 80px;
+      }
+    }
+
+    &:nth-child(2n) {
+      @include direction(row-reverse);
+      background-position: px(184) 100%;
+      
+      @include responsive(mobile) {
+        background-position: 50% 100%;
+      }
+      .heading {
+        &::after {
+          left: px(-100);
+          right: auto;
+        }
+      }
+      img {
+        @include responsive(mobile) {
+          margin-left: 0;
+      }
+      }
+    }
+    &:last-child {
+      background-image: none;
+      
+      @include responsive(mobile) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &.grey {
+    background-color: $light-grey;
+  }
+  
+}
+
+.contact-form {
+  margin-top: px(90);
+  
+  
+  .container {
+    @extend .flex;
+    @extend .wrap;  
+    @extend .shadow;
+  }
+  
+  #map {
+    width: 50%;
+  }
+  form {
+    width: calc(50% - #{px(140)});
+    margin-left: px(140);
+    text-align: center;
+    padding-right: px(100);
+    
+    h2 {
+      @include font($raleway, $extra, #{px(30)});
+      line-height: 1;
+      text-transform: uppercase;
+      margin: px(40) 0;
+    }
+    
+    button {
+      width: px(184);
+      height: px(50);
+      color: #1f80d4;
+      border: solid 1px #1f80d4;
+      border-radius: 0;
+      background-color: white;
+      @include transition(0.3s);
+      @include font($lato, $regular,#{px(16)});
+      cursor: pointer;
+      text-transform: uppercase;
+      
+      &:hover {
+        background-color: #1f80d4;
+        color: white;
+      }
+    }
+    input, textarea {
+      margin-bottom: px(12);
+    }
+  }
+}
+.image-banner {
+  width: 100%;
+  border-top: solid px(10) #dcdcdc;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: px(500);
+  
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    background-image: url(../images/overlay_middle.png);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }  
+}
+.section {
+  &.triangle-image {
+    padding: px(130) 0;
+    position: relative;
+    
+    .heading {
+      width: 45%;
+      @include responsive(mobile) {
+        width: 100%;
+      }
+    }
+    .img {
+      position: absolute;
+      height: 100%;
+      width: 44%;
+      right: 0;
+      top: 0;
+      
+      
+      
+      &::before {
+        background-image: url(../images/triangle.png);
+        height: 100%;
+        width: 100%;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      img {
+        @include image(100%, 100%, cover);
+      }
+    }
+    
+    @include responsive(mobile) {
+        padding: 50px 0 0 0;
+      .container {
+        padding: 0;
+      }
+      .heading {
+        width: 100%;
+        padding: 20px;
+        padding-bottom: 50px;
+      }
+      .img {
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+}
+.pb-140 {
+  padding-bottom: px(140);
+}
+.pb-130 {
+  padding-bottom: px(131);
+}

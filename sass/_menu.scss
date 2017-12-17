@@ -1,0 +1,176 @@
+.nav {
+  height: px(90);
+  background-color: white;
+  
+  .container {
+    @include flex(center, center);
+    height: 100%;
+    
+    
+    .brand {
+      padding: px(14);
+      img {
+        height: px(56);
+      }
+    }
+    .main {
+      @include grow(1);
+      font-size: px(16);
+      text-transform: uppercase;
+      @include flex(center, center);
+      height: 100%;
+      
+      li {
+        margin: 0 px(20);
+        @include flex(center, center);
+        height: 100%;
+        position: relative;
+        padding: px(14) 0;
+        
+        a {
+          color: $dark;
+          @include font($lato, $regular, #{px(16)});
+          text-decoration: none;
+        }
+        &:before {
+          width: 100%;
+          height: 5px;
+          content: "";
+          background-color: transparent;
+          @include transition(0.3s);
+          top: 0;
+          left: 0;
+          position: absolute;
+        }
+        &.active {
+          &:before {
+            background-color: $blue;
+          }
+        }
+      
+        &:hover {
+          &:before {
+            background-color: #2184dd87;
+          }
+        }
+      }
+    }
+    .contact {
+      color: #42444d;
+      font-size: px(14);
+      @include flex(flex-end, center);
+      
+      .mobile {
+        background-size: px(17) px(17);
+        padding-left: px(31);
+        height: px(17);
+        padding-top: px(3);
+        background-position: 0;
+        background-repeat: no-repeat;
+      }
+      .mail {
+        margin-left: px(25);
+        padding-left: px(36);
+        background-size: px(22) px(17);
+        padding-top: px(3);
+        background-position: 0;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  @include responsive(mobile) {
+    display: none;
+  }
+}
+.mobile-menu {
+  width: 80%;
+  height: 100vh;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 500;
+  @include flex(center, center);
+  @include direction(column);
+  padding: 50px;
+  @include translate(100%);
+  @include transition(0.3s);
+  display: none;
+
+  .mobile-menu-opened & {
+    @include translate(0);
+  }
+  @include responsive(small) {
+    display: flex;
+  }
+  .main {
+   @include grow(1);
+    padding-top: 60px;
+    
+    li {
+      font-size: 16px; 
+      padding-bottom: 20px;
+      
+      a{
+        color: #2c2c2c;
+        padding: 10px 0;
+      }
+      &.active {
+        a {
+          color: $blue;
+        }
+      }
+    }
+  }
+  .pre {
+    padding-left: 40px;
+    background-size: 15px;
+    line-height: 1.5;
+    font-size: 10px;
+    color: #181e27;
+    margin: 10px 0;
+  }
+}
+.mobile-nav {
+  padding: 10px 0 10px 10px;
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 400;
+  background-color: white;
+  
+  @include responsive(small) {
+    display: block;
+  }
+  img {
+    height: 40px;
+  }
+  .mobile-toggle {
+    height: 40px;
+    width: 60px;
+    @include flex(center, center);
+    @include direction(column);
+    float: right;
+    border-left: solid #e9e9eb 1px;
+  }
+  span {
+    width: 28px;
+    height: 2px;
+    background-color: #262939;
+    margin-bottom: 5px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+@include responsive(small) {
+  .content-wrapper {
+    padding-top: 60px;
+    @include transition(0.3s);
+    .mobile-menu-opened & {
+      @include translate(-80%);
+    }
+  }  
+}

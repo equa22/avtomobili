@@ -1,0 +1,83 @@
+@mixin transition($transition) {
+  transition: $transition;
+}
+
+@mixin rotate($deg) {
+  transform: rotate($deg);
+}
+
+@mixin flex($horizontal, $vertical) {
+  @extend .flex;
+  justify-content: $horizontal;
+  align-items: $vertical;
+  align-content: $vertical;
+}
+
+@mixin grow($value) {
+  flex-grow: $value;
+}
+
+@mixin direction($direction) {
+  flex-direction: $direction;
+}
+
+@mixin image($width, $height, $fit) {
+  width: $width;
+  height: $height;
+  object-fit: $fit;
+}
+
+@mixin shadow($shadow) {
+  box-shadow: $shadow; 
+}
+
+@mixin translate($value) {
+  transform: translate($value);
+}
+
+
+@mixin responsive($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-big - 1) { @content; }
+  }
+  @else if $media == small {
+    @media only screen and (max-width: $break-big - 1) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (max-width: $break-middle - 1){ 
+      $container: 1140px !global;
+      @content; 
+    }
+  }
+  @else if $media == big {
+    @media only screen and (max-width: $break-large - 1) { 
+      $container: 1300px !global;
+      @content; 
+    }
+  }
+  @else if $media == bigscreen {
+    @media only screen and (min-width: $break-large) { 
+      $container: 1528px !global;
+      @content; 
+    }
+  }
+}
+
+
+@function px($value) {
+  @return ($value/16) + rem;
+  // @return ($container*$value/1528) + px;
+}
+
+@function fontSize($value) {
+  @return ($value/16) + em;
+}
+
+@mixin font($family, $weight, $size) {
+  font-family: $family;
+  font-weight: $weight;
+  font-size: $size;
+}

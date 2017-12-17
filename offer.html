@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--[if IE]>
+        <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!-- Latest compiled and minified Bootrstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <link href="../stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="../stylesheets/main.css" rel="stylesheet"  />
+  </head>
+  <body>
+    <div class="nav">
+      <div class="container">
+        <div class="brand">
+          <img src="../images/logo.svg">
+        </div>
+        <ul class="main">
+          <li><a href="/index.html">DOMOV</a></li>
+          <li class="active"><a href="offer.html">NAŠA VOZILA</a></li>
+          <li><a href="procedure.html">POSTOPEK NAROČILA</a></li>
+          <li><a href="offices.html">POSLOVALNICE</a></li>
+          <li><a href="about.html">O NAS</a></li>
+        </ul>
+        <div class="contact">
+          <div class="pre mobile">+386 40 654 663</div>
+          <div class="pre mail">info@avtomobili.si</div>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <!-- header image with search box -->
+      <div class="header-img">
+        <img src="../images/car_red.jpg">
+        <h1>PREVERITE PONUDBO</h1>
+        <div class="search-box">
+          <h3 class="line">Izberite znamko in model avtomobila</h3>
+          <form>
+            <div class="select">
+            	<div class="select-styled brand">Izberite znamko</div>
+            	<ul class="select-options">
+            		<li rel="Izberite znamko">Izberite znamko</li>
+            		<li rel="1">Audi</li>
+            		<li rel="2">BMW</li>
+            		<li rel="3">CITROEN</li>
+            		<li rel="4">DACIA</li>
+            		<li rel="5">FIAT</li>
+            		<li rel="6">FORD</li>
+            		<li rel="7">HONDA</li>
+            		<li rel="8">HYUNDAI</li>
+            		<li rel="9">JAGUAR</li>
+            		<li rel="10">KIA</li>
+            		<li rel="11">LAND ROVER</li>
+            		<li rel="12">MAZDA</li>
+            		<li rel="13">MERCEDES</li>
+            	</ul>
+            </div>
+            <span class="arrow"></span>
+            <div class="select">
+            	<div class="select-styled model disabled">Izberite model</div>
+            	<ul class="select-options">
+            		<li rel="Izberite model">Izberite model</li>
+            		<li rel="1">Golf</li>
+            		<li rel="2">Polo</li>
+            		<li rel="3">Polo1</li>
+            		<li rel="4">Polo2</li>
+            		<li rel="5">Polo3</li>
+            		<li rel="6">Polo4</li>
+            		<li rel="7">Polo5</li>
+            		<li rel="8">Polo6</li>
+            		<li rel="9">Polo7</li>
+            		<li rel="10">Polo8</li>
+            	</ul>
+            </div>
+            <button id="sarch">NAJDI</button>
+          </form>
+        </div>
+        
+      </div>
+      <!-- logos container -> search brand by logo -->
+      <div class="logos closed" id="logos">
+        <div class="wrapper">
+          <div class="inner-wrapper">
+            <img src="../assets/brands/audi.svg" data-id="1">
+            <img src="../assets/brands/bmw.svg" data-id="2">
+            <img src="../assets/brands/citroen.svg" data-id="3">
+            <img src="../assets/brands/dacia.svg" data-id="4">
+            <img src="../assets/brands/fiat.svg" data-id="5">
+            <img src="../assets/brands/ford.svg" data-id="6">
+            <img src="../assets/brands/honda.svg" data-id="7">
+            <img src="../assets/brands/hyundai.svg" data-id="8">
+            <img src="../assets/brands/jaguar.svg" data-id="9">
+            <img src="../assets/brands/kia.svg" data-id="10">
+            <img src="../assets/brands/land-rover.svg" data-id="11">
+            <img src="../assets/brands/mazda.svg" data-id="12">
+            <img src="../assets/brands/mercedes.svg" data-id="13">
+            <img src="../assets/brands/nissan.svg" data-id="14">
+            <img src="../assets/brands/opel.svg" data-id="15">
+            <img src="../assets/brands/peugeot.svg" data-id="16">
+            <img src="../assets/brands/porsche.svg" data-id="17">
+            <img src="../assets/brands/renault.svg" data-id="18">
+            <img src="../assets/brands/seat.svg" data-id="19">
+            <img src="../assets/brands/skoda.svg" data-id="20">
+            <img src="../assets/brands/suzuki.svg" data-id="21">
+            <img src="../assets/brands/toyota.svg" data-id="22">
+            <img src="../assets/brands/volkswagen.svg" data-id="23">
+            <img src="../assets/brands/volvo.svg" data-id="24">
+          </div>          
+        </div>
+        <div class="trigger" data-toggle="openLogos">
+          <span>Išči po logotipih</span>
+        </div>
+      </div>
+      <!-- page content -->
+      <div class="container">
+        <section id="config">
+          <h3>Izberite kriterije za vozilo</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="heading gas">Tip pogona</div>
+              <form class="options" id="drivebox">
+                <div class="checkbox">
+                  <input type="checkbox" name="drive" id="dizel" value="1" class="check" checked>
+                  <label for="dizel">Dizel</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="drive" id="bencin" value="2" class="check" checked>
+                  <label for="bencin">Bencin</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox"  name="drive" id="elektrika" value="3" class="check" checked>
+                  <label for="elektrika">Elektrika</label>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-6">
+              <div class="heading gear">Menjalnik</div>
+              <form id="gearbox">
+                <div class="checkbox">
+                  <input type="checkbox" name="gear" id="rocni" value="1" class="check" checked>
+                  <label for="rocni">Ročni</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="gear" id="avtomatski" value="2" class="check" checked>
+                  <label for="avtomatski">Avtomatski</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+        <section id="selection">
+          <div class="list row">
+            <div class="item col-md-3">
+              <span>-24%</span>
+              <img src="../images/golf.jpg">
+              <h2>Golf</h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Naša cena</label>
+                  13,400.00€
+                </div>
+                <div class="col-md-6">
+                  <label>Vaš prihranek</label>
+                  do 3544€
+                  <div class="info">
+                    ?
+                    <div>Ta model bi vas pri pooblaščenem trgovcu stal 3544€ več.</div>
+                  </div>
+                </div>
+              </div>
+              <button class="selectModel" data-toggle="selectModel">IZBERI</button>
+            </div>
+            <div class="item col-md-3">
+              <span>-24%</span>
+              <img src="../images/golf.jpg">
+              <h2>Golf</h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Naša cena</label>
+                  13,400.00€
+                </div>
+                <div class="col-md-6">
+                  <label>Vaš prihranek</label>
+                  do 3544€
+                  <div class="info">
+                    ?
+                    <div>Ta model bi vas pri pooblaščenem trgovcu stal 3544€ več.</div>
+                  </div>
+                </div>
+              </div>
+              <button class="selectModel" data-toggle="selectModel">IZBERI</button>
+            </div>
+            <div class="item col-md-3">
+              <span>-24%</span>
+              <img src="../images/golf.jpg">
+              <h2>Golf</h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Naša cena</label>
+                  13,400.00€
+                </div>
+                <div class="col-md-6">
+                  <label>Vaš prihranek</label>
+                  do 3544€
+                  <div class="info">
+                    ?
+                    <div>Ta model bi vas pri pooblaščenem trgovcu stal 3544€ več.</div>
+                  </div>
+                </div>
+              </div>
+              <button class="selectModel" data-toggle="selectModel">IZBERI</button>
+            </div>
+            <div class="item col-md-3">
+              <span>-24%</span>
+              <img src="../images/golf.jpg">
+              <h2>Golf</h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Naša cena</label>
+                  13,400.00€
+                </div>
+                <div class="col-md-6">
+                  <label>Vaš prihranek</label>
+                  do 3544€
+                  <div class="info">
+                    ?
+                    <div>Ta model bi vas pri pooblaščenem trgovcu stal 3544€ več.</div>
+                  </div>
+                </div>
+              </div>
+              <button class="selectModel" data-toggle="selectModel">IZBERI</button>
+            </div>
+            <div class="item col-md-3">
+              <span>-24%</span>
+              <img src="../images/golf.jpg">
+              <h2>Golf</h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Naša cena</label>
+                  13,400.00€
+                </div>
+                <div class="col-md-6">
+                  <label>Vaš prihranek</label>
+                  do 3544€
+                  <div class="info">
+                    ?
+                    <div>Ta model bi vas pri pooblaščenem trgovcu stal 3544€ več.</div>
+                  </div>
+                </div>
+              </div>
+              <button class="selectModel" data-toggle="selectModel">IZBERI</button>
+            </div>
+          </div>
+        </section>
+        <section class="row" id="line">
+          <div class="side-menu col-md-3">
+            <h3>Izberite linijo</h3>
+            <ul>
+              <li>Trendline</li>
+              <li>Comfortline</li>
+              <li>Highline</li>
+              <li>R-Line Edition</li>
+              <li>GTD</li>
+              <li>GTI</li>
+              <li>GTE</li>
+              <li>R</li>
+            </ul>
+          </div>
+          <div id="engineList" class="col-md-9 fade">
+            <h3 class="heading">Izberite motoe</h3>
+            <h3>Dizel</h3>
+            <div class="row">
+              <table>
+                <thead>
+                  <th>Naziv motorja in moč:</th>
+                  <th>Menjalnik in velikost;</th>
+                  <th>Izpust in poraba:</th>
+                  <th>Cena in prihranek</th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <!-- item -->
+                  <tr>
+                    <td class="grey">1.6 TDI DSG Comfortline</td>
+                    <td class="gear pre">Ročni (6)</td>
+                    <td class="co2 pre">102 g/km</td>
+                    <td class="blue">16.859,00</td>
+                    <td rowspan="2"><button>Izberi</button></td>
+                  </tr>
+                  <tr>
+                    <td class="engine pre">85 KW (115KM)</td>
+                    <td class="measure pre">1598cm<sup>3</sup></td>
+                    <td class="drop pre">3,9 l/100km</td>
+                    <td class="green">3.544€ prihranke!
+                      <span class="info">?<div>Nek hint</div></span>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <!-- item -->
+                  <tr>
+                    <td class="grey">1.6 TDI DSG Comfortline</td>
+                    <td class="gear pre">Ročni (6)</td>
+                    <td class="co2 pre">102 g/km</td>
+                    <td class="blue">16.859,00</td>
+                    <td rowspan="2"><button>Izberi</button></td>
+                  </tr>
+                  <tr>
+                    <td class="engine pre">85 KW (115KM)</td>
+                    <td class="measure pre">1598cm<sup>3</sup></td>
+                    <td class="drop pre">3,9 l/100km</td>
+                    <td class="green">3.544€ prihranke! 
+                      <span class="info">?<div>Nek hint</div></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            <h3>Bencin</h3>
+              <table>
+                <thead>
+                  <th>Naziv motorja in moč:</th>
+                  <th>Menjalnik in velikost;</th>
+                  <th>Izpust in poraba:</th>
+                  <th>Cena in prihranek</th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <!-- item -->
+                  <tr>
+                    <td class="grey">1.6 TDI DSG Comfortline</td>
+                    <td class="gear pre">Ročni (6)</td>
+                    <td class="co2 pre">102 g/km</td>
+                    <td class="blue">16.859,00</td>
+                    <td rowspan="2"><button>Izberi</button></td>
+                  </tr>
+                  <tr>
+                    <td class="engine pre">85 KW (115KM)</td>
+                    <td class="measure pre">1598cm<sup>3</sup></td>
+                    <td class="drop pre">3,9 l/100km</td>
+                    <td class="green">3.544€ prihranke! 
+                      <span class="info">?<div>Nek hint</div></span>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <!-- item -->
+                  <tr>
+                    <td class="grey">1.6 TDI DSG Comfortline</td>
+                    <td class="gear pre">Ročni (6)</td>
+                    <td class="co2 pre">102 g/km</td>
+                    <td class="blue">16.859,00</td>
+                    <td rowspan="2"><button>Izberi</button></td>
+                  </tr>
+                  <tr>
+                    <td class="engine pre">85 KW (115KM)</td>
+                    <td class="measure pre">1598cm<sup>3</sup></td>
+                    <td class="drop pre">3,9 l/100km</td>
+                    <td class="green">3.544€ prihranke! 
+                      <span class="info">?<div>Nek hint</div></span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section id="offer">
+        <h2>Ponudba za vas</h2>
+        <div class="price">
+          že od 
+          <big> 
+            <label class="animate-number prevent-animation"
+                 data-char="€"
+                 data-prefix=""
+                 data-value="20450"
+                 data-counts="50"
+                 data-speed="10"
+                 data-digits="2"></label>
+            <span>Stroški so všteti v ceno</span>
+          </big>
+          
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Obiščite nas osebno</h3>
+            <div id="map"></div>
+          </div>
+          <form class="col-md-6">
+            <h3>Pošljite nam povpraševanje</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed   do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            <input type="text" id="name" class="person" placeholder="Ime">
+            <input type="mail" id="namailme" class="afna" placeholder="E-naslov">
+            <textarea id="message">Vaše sporočilo ali koda konfiguratorja</textarea>
+            <button>Pošljite brezplačno povpraševanje zdaj</button>
+            <p class="sub">Vaših podatkov ne bomo delili z nepooblaščenimi osebami</p>
+          </form>
+        </div>
+        <p class="sub col-md-8">Prikazana vozila lahko v posameznih detajlih odstopajo od trenutne ponudba za slovenski trg. Na slikah so prikazani nekateri elementi dodatne opreme, ki so na voljo za doplačilo. Vse cene so neobvezujoče priporočene cene, vkljulno z DDV in davkom na motorna vozila.</p>
+      </section>
+      <footer>
+        <div class="progress">
+          <div class="container">
+            <ul class="steps">
+              <li>ZNAMKA</li>
+              <li>MODEL</li>
+              <li>KAROSERIJA</li>
+              <li>OPREMA</li>
+              <li>MOTOR</li>
+            </ul>
+            <div class="progress-line"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="header">
+            <img src="../images/logo.svg">
+            <ul>
+              <li><a href="/index.html">Domov</a></li>
+              <li><a href="/index.html">Naša vozila</a></li>
+              <li><a href="/index.html">O nas</a></li>
+              <li><a href="/index.html">Pogoji uporabe</a></li>
+            </ul>
+          </div>
+          <div class="extra">
+              <div class="share">
+                Povežite se z nami
+                <div class="facebook"><a href="">Facebook</a></div>
+              </div>
+            </div>
+          <div class="body row">
+            <div class="item col-md-2">
+              LJUBLJANA
+              <p>Lorem ipsumova ulica 9</p>
+              <p class="pre phone">+386 40 654 663</p>
+              <p class="pre mail">info@avtomobili.si</p>
+            </div>
+            <div class="item col-md-2">
+              MARIBOR
+              <p>Lorem ipsumova ulica 9</p>
+              <p class="pre phone">+386 40 654 663</p>
+              <p class="pre mail">info@avtomobili.si</p>
+            </div>
+            <div class="item col-md-2">
+              CELJE
+              <p>Lorem ipsumova ulica 9</p>
+              <p class="pre phone">+386 40 654 663</p>
+              <p class="pre mail">info@avtomobili.si</p>
+            </div>
+            
+          </div>
+          <p class="sub">Vse pravice pridržane, Avtomobili.si 2017</p>
+        </div>
+      </footer>
+    </div>
+    
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh0mPIMq4TSY3V9e7LYxoKHcnws56qTLs&callback=initMap">
+    </script>
+    
+    <script src="../scripts/vendor/jquery-3.2.1.min.js"></script>
+    <!-- function for offer page -->
+    <script src="../scripts/offer.js" type="text/javascript"></script>
+    <script src="../scripts/numbers.js" type="text/javascript"></script>
+  </body>
+</html>
